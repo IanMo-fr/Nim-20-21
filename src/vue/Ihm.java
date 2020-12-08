@@ -7,7 +7,8 @@ package vue; /**
 *une classe dont les methodes statiques permettent d’interagir avec le joueurs
 *
 */
-import modele.HumanPlayer;
+import modele.Coup;
+import modele.Joueur;
 
 import java.util.Scanner;
 public class Ihm {
@@ -75,11 +76,11 @@ public Ihm() {
 	 * Saisi de la ligne et le nombre d'alumettes voulu
 	 * 
 	 * @param name	Le nom du joueur courant
-	 * @return saisi	Objet de class controleur.Move, contient le choix du joueur soit
+	 * @return saisi	Objet de class modele.Coup, contient le choix du joueur soit
 	 *		la ligne choisit et le nombre d'allumettes a retirer.
 	 */
-	public Move getMove(String name){
-		Move saisi = new Move();
+	public Coup getMove(String name){
+		Coup saisi = new Coup();
 		boolean exception=false;
 		do{ System.out.print("\n"+name+" Saisissez votre ligne et le nombre d'allumettes a retirer : ");
 			
@@ -163,12 +164,12 @@ public Ihm() {
 	 *  affiche un message indiquant au joueur que son coup est
 	 * invalide
 	 * 
-	 * @param move	l'objet de la classe controleur.Move stockant la ligne choisit
+	 * @param move	l'objet de la classe modele.Coup stockant la ligne choisit
 	 *		ainsi que le nombre d'allumettes a retirer.
 	 */
-	public void invalidMove(Move move){
+	public void invalidMove(Coup move){
 		
-	    if (!move.valide)
+	    if (1<2) //placeholder
 		System.out.println("Erreur : Le mouvement demandé n'est pas réalisable."
 			+ "\nVeuillez recommencer.\n");
 	    
@@ -270,7 +271,7 @@ public Ihm() {
 	 * 
 	 * @param joueur	le pseudo du joueur a afficher dans le message
 	 */
-	public void score (HumanPlayer joueur){
+	public void score (Joueur joueur){
 	    System.out.print( joueur.getName()+" : " +joueur.getScore());
 	}
 	

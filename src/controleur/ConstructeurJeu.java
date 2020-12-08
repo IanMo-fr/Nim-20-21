@@ -3,20 +3,20 @@ package controleur; /**
  * @author Admin
  */
 
-import modele.HumanPlayer;
+import modele.Joueur;
 import vue.Ihm;
 
 /**
 *cette classe represente le plateau de jeu et reunit les differents elements d’un jeu :
 *les joueurs et l’etat courant
 */
-public class Board {
+public class ConstructeurJeu {
 
 /* ****************
         Variables
 **************** */
-public static GameState game = new GameState();
-public static HumanPlayer[] joueur = new HumanPlayer[2];
+public static ControleurJeu game = new ControleurJeu();
+public static Joueur[] joueur = new Joueur[2];
 
 
 /* ********************
@@ -24,20 +24,20 @@ public static HumanPlayer[] joueur = new HumanPlayer[2];
 ******************** */
 
 //constructeur par défaut
-public Board() {
-	GameState game = new GameState();
+public ConstructeurJeu() {
+	ControleurJeu game = new ControleurJeu();
 }
 
 //constructeur avec vue.Ihm
-public Board(Ihm ihm){
-	GameState game = new GameState(ihm.getSize());
-	joueur[0]= new HumanPlayer(ihm.assignName(1));
-	joueur[1]= new HumanPlayer(ihm.assignName(2));
+public ConstructeurJeu(Ihm ihm){
+	ControleurJeu game = new ControleurJeu(ihm.getSize());
+	joueur[0]= new Joueur(ihm.assignName(1));
+	joueur[1]= new Joueur(ihm.assignName(2));
 }
 
 //constructeur avec Tableau de Joueurs et ihm
-public Board(HumanPlayer[] joueur, Ihm ihm){
-	GameState game = new GameState(ihm.getSize());
+public ConstructeurJeu(Joueur[] joueur, Ihm ihm){
+	ControleurJeu game = new ControleurJeu(ihm.getSize());
 	this.joueur[0] = joueur[0];
 	this.joueur[1] = joueur[1];
 }

@@ -4,7 +4,7 @@ import vue.Ihm;
  *
  * @author Admin
  */
-public class Main {
+public class JeuNim {
 
     /**
      * @param args the command line arguments

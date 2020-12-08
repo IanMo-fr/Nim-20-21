@@ -10,7 +10,7 @@ package modele;
 * methode:isLeading | getName | SetName | getScore
 */
 import java.util.Scanner;
-public class HumanPlayer {
+public class Joueur {
 Scanner sc = new Scanner(System.in);
 
 
@@ -27,13 +27,13 @@ Scanner sc = new Scanner(System.in);
 ******************** */
 
 //constructeur par défaut
-public HumanPlayer() {
+public Joueur() {
     this.name = null;
     this.score = 0;
 }
 
 //constructeur avec nom
-public HumanPlayer(String name) {
+public Joueur(String name) {
     this.name = name;
 }
 
@@ -46,7 +46,7 @@ public HumanPlayer(String name) {
  * @param otherOne	L'objet joueur a comparer avec l'objet appelant
  * @return name	Le pseudo du joueur avec la plus grande valeur score
  */
-public String isLeading(HumanPlayer otherOne){
+public String isLeading(Joueur otherOne){
     
     if (this.score > otherOne.score) 
 	return this.getName();

@@ -9,7 +9,7 @@ package controleur;
  *
  */
  
-public class GameState {
+public class ControleurJeu {
 
 /* ****************
         Variables
@@ -27,14 +27,14 @@ public static int [] board;
 ******************** */
 
 //constructeur par défaut
-public GameState() {
+public ControleurJeu() {
     this.nbreLignes = 0;
     this.totalOfMatches = 0;
     this.board = new int [0];
 }
 
 //constructeur avec nombres de ligne
-public GameState(int lignesDemande) {
+public ControleurJeu(int lignesDemande) {
     assert (lignesDemande > 0) : "Erreur : Lignes invalides pour créer le tableau de jeu";
     
     this.nbreLignes = lignesDemande;
