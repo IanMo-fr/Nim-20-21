@@ -85,9 +85,10 @@ public Ihm() {
 		do{ System.out.print("\n"+name+" Saisissez votre ligne et le nombre d'allumettes a retirer : ");
 			
 		try {
+			// /!\ remplacer les variables par les méthodes d'accès
 			saisi.lignes=sc.nextInt();
 			//Uncomment For Testing//System.out.println(saisi.lignes);
-			saisi.nbMatches=sc.nextInt();
+			saisi.nbAllumettes=sc.nextInt();
 			//Uncomment For Testing//System.out.println(saisi.nbMatches);
 			
 			//gestion exception si entrée autre que Entier

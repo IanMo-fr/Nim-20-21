@@ -1,4 +1,5 @@
-package modele; /**
+package modele;
+/**
  *
  * @author Admin
  */
