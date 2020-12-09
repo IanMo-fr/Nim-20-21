@@ -17,6 +17,7 @@ public class Coup {
 **************** */
     int lignes;
     int nbAllumettes;
+    private static int contrainte;
 
     
 /* ********************
@@ -27,6 +28,14 @@ public class Coup {
 public Coup() {
 	this.lignes=0;
 	this.nbAllumettes =0;
+	this.contrainte=0;
+}
+
+//constructeur avec contrainte
+public Coup(int contrainte) {
+	this.lignes=0;
+	this.nbAllumettes=0;
+	this.contrainte = contrainte;
 }
 
 /* ****************

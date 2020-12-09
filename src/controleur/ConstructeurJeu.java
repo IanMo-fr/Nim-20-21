@@ -19,6 +19,7 @@ public class ConstructeurJeu {
 **************** */
 
 private Tas tas;
+private Ihm console;
 
 /* ********************
         Constructeurs
@@ -31,8 +32,8 @@ public ConstructeurJeu() {
 
 //constructeur par la console
 public ConstructeurJeu(Ihm console) {
-
-    this.tas = new Tas(console.getSize());
+    this.console = console;
+    this.tas = null;
 
 }
 
@@ -40,11 +41,23 @@ public ConstructeurJeu(Ihm console) {
         Methodes 
 **************** */
 
-
+    /**
+     * Getteur de <code>Tas</code>
+     * @return <code>Tas</code> si initialisé par le constructeur, <code>null</code> autrement
+     */
     public Tas getLesTas() {
         if (this.tas!=null)
             return this.tas;
         else
             return null;
+    }
+
+    /**
+     * Permet le demande de contrainte de <code>Coup</code> et de la taille/nombre de lignes de <code>Tas</code>
+     */
+    public void construireJeu() {
+        this.tas= new Tas(console.getSize());
+        //je ne sais pas encore comment gerer coup
+
     }
 }
