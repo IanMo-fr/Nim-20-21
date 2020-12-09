@@ -1,26 +1,23 @@
-package controleur;
-/**
+package controleur; /**
  *
  * @author Admin
  */
 
- /**
- *represente l’etat courant du jeu
- *
- */
- 
+import modele.Joueur;
+import vue.Ihm;
+
+/**
+*cette classe represente le plateau de jeu et reunit les differents elements d’un jeu :
+*les joueurs et l’etat courant
+*/
 public class ControleurJeu {
 
 /* ****************
         Variables
 **************** */
+public static ConstructeurJeu game = new ConstructeurJeu();
+public static Joueur[] joueur = new Joueur[2];
 
-//nombres total d'allumettes (methode Static pour ne pas avoir de 'paire' d'allumettes)
-public static int totalOfMatches; 
-//nombre de ligne assigné par le joueur
-public int nbreLignes;
-//tableau de jeu
-public static int [] board;
 
 /* ********************
         Constructeurs
@@ -28,38 +25,43 @@ public static int [] board;
 
 //constructeur par défaut
 public ControleurJeu() {
-    this.nbreLignes = 0;
-    this.totalOfMatches = 0;
-    this.board = new int [0];
+	ConstructeurJeu game = new ConstructeurJeu();
 }
 
-//constructeur avec nombres de ligne
-public ControleurJeu(int lignesDemande) {
-    assert (lignesDemande > 0) : "Erreur : Lignes invalides pour créer le tableau de jeu";
-    
-    this.nbreLignes = lignesDemande;
-    for(int i = this.nbreLignes-1 ; i>=0 ; i--){
-    	this.totalOfMatches+=i*2+1;
-    }
-    this.board = new int [nbreLignes];
-    initialisation(this.board);
-
+//constructeur avec vue.Ihm
+public ControleurJeu(Ihm ihm){
+	ConstructeurJeu game = new ConstructeurJeu(ihm.getSize());
+	joueur[0]= new Joueur(ihm.assignName(1));
+	joueur[1]= new Joueur(ihm.assignName(2));
 }
+
+//constructeur avec Tableau de Joueurs et ihm
+public ControleurJeu(Joueur[] joueur, Ihm ihm){
+	ConstructeurJeu game = new ConstructeurJeu(ihm.getSize());
+	this.joueur[0] = joueur[0];
+	this.joueur[1] = joueur[1];
+}
+
+
+
 
 /* ****************
         Methodes 
 **************** */
 
-/**
- * génère un tableau initialise, stocke 2n +1 allumettes par n lignes
- * 
- * @param jeu	Le tableau contenant les allumettes
- */
-	public void initialisation(int [] jeu){// initialisation du tableau d'allumette
+	/**
+	 * Vérifie qu'il reste des allumettes sur le plateau
+	 * 
+	 * @return   <code>true</code> si il n'y a plus d'allumettes
+	 *	<code>false</code> dans le cas contraire
+	 */
+	public boolean endGame(){
+		if(this.game.totalOfMatches==0){
+			return true;
+		}
+		return false;
+	}
 
-	for(int l=0; l<(nbreLignes); l++){//ligne
-	    jeu[l]=l*2+1;
-	}
-	}
 
 }
+

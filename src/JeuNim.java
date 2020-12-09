@@ -1,3 +1,6 @@
+import controleur.ConstructeurJeu;
+import controleur.ControleurJeu;
+import modele.Tas;
 import vue.Ihm;
 
 /**
@@ -14,7 +17,7 @@ public class JeuNim {
 		ConstructeurJeu constructeurJeu = new ConstructeurJeu (ihm);
 		constructeurJeu.construireJeu();
 		Tas lesTas = constructeurJeu.getLesTas();
-		ControleurJeu controleurJeu = new controleurJeu(ihm, lesTas);
+		ControleurJeu controleurJeu = new ControleurJeu(ihm, lesTas);
 		constructeurJeu.commencerJeu();
     }
     

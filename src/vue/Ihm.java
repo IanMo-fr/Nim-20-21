@@ -73,7 +73,7 @@ public Ihm() {
 	}
 
 	/**
-	 * Saisi de la ligne et le nombre d'alumettes voulu
+	 * Saisi de la ligne et le nombre d'alumettes voulu pour un coup
 	 * 
 	 * @param name	Le nom du joueur courant
 	 * @return saisi	Objet de class modele.Coup, contient le choix du joueur soit

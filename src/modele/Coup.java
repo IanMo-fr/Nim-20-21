@@ -4,7 +4,7 @@ package modele;
  * @author Admin
  */
 
-import controleur.ControleurJeu;
+import controleur.ConstructeurJeu;
 
 /**
 *represente un coup (un numéro se tas et un nombre d’allumettes)
@@ -39,7 +39,7 @@ public Coup() {
  * @param controleurJeu	    L'objet system de jeu contenant le nombre d'allumettes totals
  *		    ainsi que le tableau de jeu
  */
-public void TakeMatches(ControleurJeu controleurJeu){
+public void TakeMatches(ConstructeurJeu controleurJeu){
 
 	//retire les allumettes choisit au total
 	controleurJeu.totalOfMatches-=this.nbAllumettes;
