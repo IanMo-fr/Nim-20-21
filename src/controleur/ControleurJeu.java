@@ -18,6 +18,7 @@ public class ControleurJeu {
 **************** */
 private Joueur[] joueur = new Joueur[2];
 private Tas lesTas;
+private Ihm vue;
 
 /* ********************
         Constructeurs
@@ -34,12 +35,28 @@ public ControleurJeu(Ihm console, Tas lesTas){
 	joueur[0]= new Joueur(console.assignName(1));
 	joueur[1]= new Joueur(console.assignName(2));
 	this.lesTas = lesTas;
+	this.vue = console;
 }
 
 
 /* ****************
         Methodes 
 **************** */
+public void commencerJeu () {
+	vue.startGame();
+
+	while (!endGame()) {
+		vue.showBoard(lesTas.getAllumettes());
+		vue.getMove(joueur[1].getName());
+		vue.showBoard(lesTas.getAllumettes());
+		if (endGame())
+			break;
+		vue.getMove(joueur[2].getName());
+		endGame();
+	}
+
+}
+
 
 	/**
 	 * Vérifie qu'il reste des allumettes sur le plateau
@@ -48,7 +65,7 @@ public ControleurJeu(Ihm console, Tas lesTas){
 	 *	<code>false</code> dans le cas contraire
 	 */
 	public boolean endGame(){
-		if(this.game.totalOfMatches==0){
+		if(this.lesTas.totalOfMatches==0){
 			return true;
 		}
 		return false;

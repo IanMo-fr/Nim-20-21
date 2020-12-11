@@ -19,4 +19,12 @@ int allumettes[];
 /* ****************
         Methodes
 **************** */
+
+    public int[] getAllumettes() {
+        return allumettes;
+    }
+
+    public void retirer (int ligne, int allumettes) {
+
+    }
 }

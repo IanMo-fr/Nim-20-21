@@ -11,13 +11,13 @@ package modele;
 */
 import java.util.Scanner;
 public class Joueur {
-Scanner sc = new Scanner(System.in);
+
 
 
 /* ****************
         Variables
 **************** */
-    public String name;
+    private String name;
     int score;
     
 

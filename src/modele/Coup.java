@@ -72,7 +72,7 @@ public Coup(int contrainte) {
  * @param controleurJeu	    L'objet system de jeu contenant le nombre d'allumettes totals
  *		    ainsi que le tableau de jeu
  */
-public void TakeMatches(ConstructeurJeu controleurJeu){
+public void TakeMatches(Tas tas){
 
 	//retire les allumettes choisit au total
 	controleurJeu.totalOfMatches-=this.nbAllumettes;
