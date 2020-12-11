@@ -86,10 +86,10 @@ public Ihm() {
 			
 		try {
 			// /!\ remplacer les variables par les méthodes d'accès
-			saisi.lignes=sc.nextInt();
-			//Uncomment For Testing//System.out.println(saisi.lignes);
-			saisi.nbAllumettes=sc.nextInt();
-			//Uncomment For Testing//System.out.println(saisi.nbMatches);
+			saisi.setLignes(sc.nextInt());
+
+			saisi.setNbAllumettes(sc.nextInt());
+
 			
 			//gestion exception si entrée autre que Entier
 			} catch (java.util.InputMismatchException e) {
@@ -275,8 +275,15 @@ public Ihm() {
 	public void score (Joueur joueur){
 	    System.out.print( joueur.getName()+" : " +joueur.getScore());
 	}
-	
-	
 
+
+	/**
+	 * Demande le nombre max d'allumettes à retirer par coup autorisé pour la partie, si 0 pas de limite
+	 * @return
+	 */
+	public int getContrainte() {
+		System.out.println("\nDonnez le nombre maximum d'allumettes pouvant être retiré en un tour pour votre partie");
+		return 0;
+	}
 }
 

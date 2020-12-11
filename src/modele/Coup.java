@@ -42,7 +42,31 @@ public Coup(int contrainte) {
         Methodes 
 **************** */
 
-/**
+	/**
+	 * Setter de contrainte
+	 * @param  max
+	 */
+	public static void setContrainte(int max) {
+		Coup.contrainte = contrainte;
+	}
+
+	/**
+	 * Setter de ligne
+	 * @param lignes
+	 */
+	public void setLignes(int lignes) {
+		this.lignes = lignes;
+	}
+
+	/**
+	 * Setter de nbALlumettes
+	 * @param nbAllumettes
+	 */
+	public void setNbAllumettes(int nbAllumettes) {
+		this.nbAllumettes = nbAllumettes;
+	}
+
+	/**
  * Retire le nombre d'allumettes entrees aux total d'allumettes du jeu
  * 
  * @param controleurJeu	    L'objet system de jeu contenant le nombre d'allumettes totals
