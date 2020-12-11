@@ -7,7 +7,7 @@ package modele;
 import controleur.ConstructeurJeu;
 
 /**
-*represente un coup (un numéro se tas et un nombre d’allumettes)
+*represente un coup (un numéro de tas et un nombre d’allumettes)
 *
 */
 public class Coup {

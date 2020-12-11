@@ -4,6 +4,7 @@ package controleur; /**
  */
 
 import modele.Joueur;
+import modele.Tas;
 import vue.Ihm;
 
 /**
@@ -15,9 +16,8 @@ public class ControleurJeu {
 /* ****************
         Variables
 **************** */
-public static ConstructeurJeu game = new ConstructeurJeu();
-public static Joueur[] joueur = new Joueur[2];
-
+private Joueur[] joueur = new Joueur[2];
+private Tas lesTas;
 
 /* ********************
         Constructeurs
@@ -25,24 +25,16 @@ public static Joueur[] joueur = new Joueur[2];
 
 //constructeur par défaut
 public ControleurJeu() {
-	ConstructeurJeu game = new ConstructeurJeu();
+	joueur = null;
+	lesTas =null;
 }
 
-//constructeur avec vue.Ihm
-public ControleurJeu(Ihm ihm){
-	ConstructeurJeu game = new ConstructeurJeu(ihm.getSize());
-	joueur[0]= new Joueur(ihm.assignName(1));
-	joueur[1]= new Joueur(ihm.assignName(2));
+//constructeur avec vue.Ihm et modele.Tas
+public ControleurJeu(Ihm console, Tas lesTas){
+	joueur[0]= new Joueur(console.assignName(1));
+	joueur[1]= new Joueur(console.assignName(2));
+	this.lesTas = lesTas;
 }
-
-//constructeur avec Tableau de Joueurs et ihm
-public ControleurJeu(Joueur[] joueur, Ihm ihm){
-	ConstructeurJeu game = new ConstructeurJeu(ihm.getSize());
-	this.joueur[0] = joueur[0];
-	this.joueur[1] = joueur[1];
-}
-
-
 
 
 /* ****************
