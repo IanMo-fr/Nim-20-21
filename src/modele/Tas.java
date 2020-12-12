@@ -42,4 +42,10 @@ int allumettes[];
     }
         return res;
     }
+
+    @Override
+    public Object clone () {
+        Tas copie= new Tas(this.allumettes.length);
+        return copie;
+    }
 }

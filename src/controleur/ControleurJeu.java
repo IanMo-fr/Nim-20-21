@@ -46,13 +46,18 @@ public void commencerJeu () {
 	vue.startGame();
 	boolean jouer=true;
 
-	while (jouer) {
-		do {
+	while (jouer) {// on boucle tant que le reponse a voulez vous rejouer est oui
 
+		//on verifie bien que le tas n'est pas vide, essentiel apres la premiere boucle de jeu
+		lesTas= (Tas) lesTas.clone();
+
+		do { // on boucle tant qu'il reste des allumettes
+
+			//boucle for pour simplifier le code niveau redite
 			for (int tour = 0; tour < joueur.length; tour++) {
 				vue.showBoard(lesTas.getAllumettes());
 				vue.getMove(joueur[tour].getName()).TakeMatches(this.lesTas);
-				if (endGame()) {//si le joueur 1 retire toute les allumettes
+				if (endGame()) {//si le joueur retire toute les allumettes
 					joueur[tour].setScore(joueur[tour].getScore() + 1);
 					vue.showWinner(joueur[tour].getName());
 					break;
