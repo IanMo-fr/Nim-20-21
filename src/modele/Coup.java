@@ -66,19 +66,15 @@ public Coup(int contrainte) {
 		this.nbAllumettes = nbAllumettes;
 	}
 
+
 	/**
  * Retire le nombre d'allumettes entrees aux total d'allumettes du jeu
  * 
- * @param controleurJeu	    L'objet system de jeu contenant le nombre d'allumettes totals
- *		    ainsi que le tableau de jeu
+ * @param tas	    L'objet system de jeu contenant les allumettes
  */
-public void TakeMatches(Tas tas){
-
-	//retire les allumettes choisit au total
-	controleurJeu.totalOfMatches-=this.nbAllumettes;
-	//retire les alluettes a une ligne
-	controleurJeu.board[this.lignes-1] = controleurJeu.board[this.lignes-1] - this.nbAllumettes;
-
+	public void TakeMatches(Tas tas){
+	//retire les allumettes a une ligne
+	tas.retirer(this.lignes, this.nbAllumettes);
 
 }
 

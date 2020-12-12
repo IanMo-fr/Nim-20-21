@@ -47,12 +47,11 @@ public void commencerJeu () {
 
 	while (!endGame()) {
 		vue.showBoard(lesTas.getAllumettes());
-		vue.getMove(joueur[1].getName());
+		vue.getMove(joueur[1].getName()).TakeMatches(this.lesTas);
 		vue.showBoard(lesTas.getAllumettes());
-		if (endGame())
+		if (endGame()) //si le joueur 1 retire toute les allumettes
 			break;
-		vue.getMove(joueur[2].getName());
-		endGame();
+		vue.getMove(joueur[2].getName()).TakeMatches(this.lesTas);
 	}
 
 }
@@ -65,7 +64,7 @@ public void commencerJeu () {
 	 *	<code>false</code> dans le cas contraire
 	 */
 	public boolean endGame(){
-		if(this.lesTas.totalOfMatches==0){
+		if(this.lesTas.isEmpty()){
 			return true;
 		}
 		return false;

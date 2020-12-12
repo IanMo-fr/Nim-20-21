@@ -4,7 +4,7 @@ package vue; /**
  */
  
 /**
-*une classe dont les methodes statiques permettent d’interagir avec le joueurs
+*une classe dont les methodes permettent d’interagir avec le joueurs
 *
 */
 import modele.Coup;
