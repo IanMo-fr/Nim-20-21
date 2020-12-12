@@ -47,12 +47,13 @@ public void commencerJeu () {
 
 	while (!endGame()) {
 		vue.showBoard(lesTas.getAllumettes());
-		vue.getMove(joueur[1].getName()).TakeMatches(this.lesTas);
+		vue.getMove(joueur[0].getName()).TakeMatches(this.lesTas);
 		vue.showBoard(lesTas.getAllumettes());
 		if (endGame()) //si le joueur 1 retire toute les allumettes
 			break;
-		vue.getMove(joueur[2].getName()).TakeMatches(this.lesTas);
+		vue.getMove(joueur[1].getName()).TakeMatches(this.lesTas);
 	}
+
 
 }
 
