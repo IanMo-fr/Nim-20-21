@@ -44,17 +44,26 @@ public ControleurJeu(Ihm console, Tas lesTas){
 **************** */
 public void commencerJeu () {
 	vue.startGame();
+	boolean jouer=true;
 
-	while (!endGame()) {
-		vue.showBoard(lesTas.getAllumettes());
-		vue.getMove(joueur[0].getName()).TakeMatches(this.lesTas);
-		vue.showBoard(lesTas.getAllumettes());
-		if (endGame()) //si le joueur 1 retire toute les allumettes
-			break;
-		vue.getMove(joueur[1].getName()).TakeMatches(this.lesTas);
+	while (jouer) {
+		do {
+
+			for (int tour = 0; tour < joueur.length; tour++) {
+				vue.showBoard(lesTas.getAllumettes());
+				vue.getMove(joueur[tour].getName()).TakeMatches(this.lesTas);
+				if (endGame()) {//si le joueur 1 retire toute les allumettes
+					joueur[tour].setScore(joueur[tour].getScore() + 1);
+					vue.showWinner(joueur[tour].getName());
+					break;
+				}
+			}
+		}while (!endGame());
+		jouer=vue.restart();
+
 	}
-
-
+	//fin de la partie
+	vue.winnerVictory(joueur[0].isLeading(joueur[1]));
 }
 
 

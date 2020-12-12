@@ -85,5 +85,12 @@ public int getScore() {
     return this.score;
 }
 
+    /**
+     * Setter de score
+     * @param score
+     */
+    public void setScore(int score) {
+        this.score = score;
+    }
 }
 
