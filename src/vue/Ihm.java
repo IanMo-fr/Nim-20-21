@@ -10,7 +10,9 @@ package vue; /**
 import modele.Coup;
 import modele.Joueur;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class Ihm {
 Scanner sc = new Scanner(System.in);
 
@@ -80,7 +82,7 @@ public Ihm() {
 	 *		la ligne choisit et le nombre d'allumettes a retirer.
 	 */
 	public Coup getMove(String name){
-		Coup saisi = new Coup();
+		Coup saisi = new Coup(Coup.contrainte);
 		boolean exception=false;
 		do{ System.out.print("\n"+name+" Saisissez votre ligne et le nombre d'allumettes a retirer : ");
 			
@@ -88,11 +90,16 @@ public Ihm() {
 			// /!\ remplacer les variables par les méthodes d'accès
 			saisi.setLignes(sc.nextInt());
 
-			saisi.setNbAllumettes(sc.nextInt());
+			int nbAll = sc.nextInt();
+			while (nbAll > Coup.contrainte) {
+				System.out.println("le nombre est trop grand par rapport à la contrainte");
+				nbAll = sc.nextInt(); // Redemande un nouveau nombre
+			}
+			saisi.setNbAllumettes(nbAll);
 
 			
 			//gestion exception si entrée autre que Entier
-			} catch (java.util.InputMismatchException e) {
+			} catch (InputMismatchException e) {
 		    	exception = true;
 		    	System.out.println("Erreur : Ceci n'est pas un nombre");
 		    	sc.next();
@@ -218,9 +225,9 @@ public Ihm() {
 	    System.out.println("                                                                        ");
 	    System.out.println("Avant de commencer voici quelques regles:\n ");
 	    System.out.println(" \t1 - Chaque joueur joue 1 tour");
-	    System.out.println(" \t2 - Chaque tour 1 joueur va choisir une ligne dans laquelle il va retirer 1 a 3 allumettes");
-	    System.out.println(" \t3 - Le jeu se finit quand il y aurra plus d'allumettes a enlever");
-	    System.out.println(" \t4 - Le joueur perdant est celui qui enleve la derniere allumette");
+	    System.out.println(" \t2 - Chaque tour un joueur va choisir une ligne dans laquelle il va retirer au moins une allumettes");
+	    System.out.println(" \t3 - Le jeu se finit quand il n'y aura plus d'allumettes a enlever");
+	    System.out.println(" \t4 - Le joueur gagnant est celui qui enleve la derniere allumette");
 
 
 
@@ -282,8 +289,11 @@ public Ihm() {
 	 * @return
 	 */
 	public int getContrainte() {
-		System.out.println("\nDonnez le nombre maximum d'allumettes pouvant être retiré en un tour pour votre partie");
-		return 0;
+		System.out.println("\nDonnez le nombre maximum d'allumettes pouvant etre retire en un tour pour votre partie");
+
+		return sc.nextInt();
 	}
+
 }
+
 

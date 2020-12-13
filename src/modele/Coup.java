@@ -12,12 +12,12 @@ import controleur.ConstructeurJeu;
 */
 public class Coup {
 
-/* ****************
-        Variables
-**************** */
+	public static int contrainte;
+	/* ****************
+            Variables
+    **************** */
     int lignes;
     int nbAllumettes;
-    private static int contrainte;
 
     
 /* ********************
@@ -47,7 +47,7 @@ public Coup(int contrainte) {
 	 * @param  max
 	 */
 	public static void setContrainte(int max) {
-		Coup.contrainte = contrainte;
+		Coup.contrainte = max;
 	}
 
 	/**
@@ -74,7 +74,7 @@ public Coup(int contrainte) {
  */
 	public void TakeMatches(Tas tas){
 	//retire les allumettes a une ligne
-	tas.retirer(this.lignes, this.nbAllumettes);
+	tas.retirer(this.lignes-1, this.nbAllumettes);
 
 }
 
