@@ -1,11 +1,13 @@
 package modele;
 
+import java.util.InputMismatchException;
+
 public class Tas {
 /* ****************
         Variables
 **************** */
-int allumettes[];    
-int contrainte;
+private int allumettes[];
+private static int contrainte;
 /* ********************
         Constructeurs
 ******************** */
@@ -26,8 +28,12 @@ int contrainte;
     }
 
     public void retirer (int ligne, int allumettes) {
-        this.allumettes [ligne] = this.allumettes[ligne] - allumettes;
-    }
+
+            if (allumettes < 0 || allumettes > contrainte)
+                throw new InputMismatchException("Nombre négatif");
+            else
+                this.allumettes [ligne] = this.allumettes[ligne] - allumettes;
+        }
 
     /**
      * Verifie si le tableau du tas est vide ou non
@@ -41,6 +47,10 @@ int contrainte;
                 return false;
     }
         return res;
+    }
+
+    public static void setContrainte(int max) {
+       contrainte = max;
     }
 
     @Override

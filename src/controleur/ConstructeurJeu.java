@@ -68,7 +68,7 @@ public ConstructeurJeu(Ihm console) {
     public void construireJeu() {
         initTas(console.getSize());
 
-        Coup.setContrainte(console.getContrainte());
+       Tas.setContrainte(console.getContrainte());
 
     }
 }

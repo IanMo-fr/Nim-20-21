@@ -91,10 +91,7 @@ public Ihm() {
 			saisi.setLignes(sc.nextInt());
 
 			int nbAll = sc.nextInt();
-			while (nbAll > Coup.contrainte) {//contrainte teste
-				System.out.println("le nombre est trop grand par rapport à la contrainte");
-				nbAll = sc.nextInt(); // Redemande un nouveau nombre
-			}
+
 			saisi.setNbAllumettes(nbAll);
 
 			

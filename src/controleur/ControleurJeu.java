@@ -7,6 +7,8 @@ import modele.Joueur;
 import modele.Tas;
 import vue.Ihm;
 
+import java.util.InputMismatchException;
+
 /**
 *cette classe represente le plateau de jeu et reunit les differents elements d’un jeu :
 *les joueurs et l’etat courant
@@ -56,8 +58,21 @@ public void commencerJeu () {
 			//boucle for pour simplifier le code niveau redite
 			for (int tour = 0; tour < joueur.length; tour++) {
 				vue.showBoard(lesTas.getAllumettes());
+
 				//gestion de l'exception de TakeMatches -> retirer soit try et catch
-				vue.getMove(joueur[tour].getName()).TakeMatches(this.lesTas);
+				boolean exception;
+				do {
+					exception = false;
+					try {
+						vue.getMove(joueur[tour].getName()).TakeMatches(this.lesTas);
+					}
+					catch(InputMismatchException e) {
+						System.out.println("mauvaise saissie");
+						exception = true;
+					}
+
+				}while (exception);
+
 				if (endGame()) {//si le joueur retire toute les allumettes
 					joueur[tour].setScore(joueur[tour].getScore() + 1);
 					vue.showWinner(joueur[tour].getName());
