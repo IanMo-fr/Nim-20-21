@@ -69,6 +69,8 @@ public void commencerJeu () {
 	}
 	//fin de la partie
 	vue.winnerVictory(joueur[0].isLeading(joueur[1]));
+	vue.score(joueur[0]);
+	vue.score(joueur[1]);
 }
 
 

@@ -168,20 +168,6 @@ public Ihm() {
 		}
 	}
 
-	/**
-	 *  affiche un message indiquant au joueur que son coup est
-	 * invalide
-	 * 
-	 * @param move	l'objet de la classe modele.Coup stockant la ligne choisit
-	 *		ainsi que le nombre d'allumettes a retirer.
-	 */
-	public void invalidMove(Coup move){
-		
-	    if (1<2) //placeholder
-		System.out.println("Erreur : Le mouvement demandé n'est pas réalisable."
-			+ "\nVeuillez recommencer.\n");
-	    
-	}
 
 	/** 
 	 *  affiche un message annoncant la victoire du joueur
