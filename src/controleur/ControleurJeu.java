@@ -56,6 +56,7 @@ public void commencerJeu () {
 			//boucle for pour simplifier le code niveau redite
 			for (int tour = 0; tour < joueur.length; tour++) {
 				vue.showBoard(lesTas.getAllumettes());
+				//gestion de l'exception de TakeMatches -> retirer soit try et catch
 				vue.getMove(joueur[tour].getName()).TakeMatches(this.lesTas);
 				if (endGame()) {//si le joueur retire toute les allumettes
 					joueur[tour].setScore(joueur[tour].getScore() + 1);

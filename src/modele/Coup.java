@@ -12,7 +12,7 @@ import controleur.ConstructeurJeu;
 */
 public class Coup {
 
-	public static int contrainte;
+
 	/* ****************
             Variables
     **************** */
@@ -28,27 +28,13 @@ public class Coup {
 public Coup() {
 	this.lignes=0;
 	this.nbAllumettes =0;
-	this.contrainte=0;
 }
 
-//constructeur avec contrainte
-public Coup(int contrainte) {
-	this.lignes=0;
-	this.nbAllumettes=0;
-	this.contrainte = contrainte;
-}
 
 /* ****************
         Methodes 
 **************** */
 
-	/**
-	 * Setter de contrainte
-	 * @param  max
-	 */
-	public static void setContrainte(int max) {
-		Coup.contrainte = max;
-	}
 
 	/**
 	 * Setter de ligne

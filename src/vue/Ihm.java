@@ -82,7 +82,7 @@ public Ihm() {
 	 *		la ligne choisit et le nombre d'allumettes a retirer.
 	 */
 	public Coup getMove(String name){
-		Coup saisi = new Coup(Coup.contrainte);
+		Coup saisi = new Coup();
 		boolean exception=false;
 		do{ System.out.print("\n"+name+" Saisissez votre ligne et le nombre d'allumettes a retirer : ");
 			
@@ -91,7 +91,7 @@ public Ihm() {
 			saisi.setLignes(sc.nextInt());
 
 			int nbAll = sc.nextInt();
-			while (nbAll > Coup.contrainte) {
+			while (nbAll > Coup.contrainte) {//contrainte teste
 				System.out.println("le nombre est trop grand par rapport à la contrainte");
 				nbAll = sc.nextInt(); // Redemande un nouveau nombre
 			}

@@ -5,7 +5,7 @@ public class Tas {
         Variables
 **************** */
 int allumettes[];    
-
+int contrainte;
 /* ********************
         Constructeurs
 ******************** */
