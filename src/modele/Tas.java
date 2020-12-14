@@ -28,11 +28,12 @@ private static int contrainte;
     }
 
     public void retirer (int ligne, int allumettes) {
-
-            if (allumettes < 0 || allumettes > contrainte)
-                throw new InputMismatchException("Nombre négatif");
-            else
-                this.allumettes [ligne] = this.allumettes[ligne] - allumettes;
+        if (allumettes < 0 && contrainte == 0)
+            this.allumettes [ligne] = this.allumettes[ligne] - allumettes;
+        if (allumettes < 0 || allumettes > contrainte)
+            throw new InputMismatchException("Nombre négatif");
+        else
+            this.allumettes [ligne] = this.allumettes[ligne] - allumettes;
         }
 
     /**

@@ -67,7 +67,7 @@ public void commencerJeu () {
 						vue.getMove(joueur[tour].getName()).TakeMatches(this.lesTas);
 					}
 					catch(InputMismatchException e) {
-						System.out.println("mauvaise saissie");
+						System.out.println("mauvaise saisie");
 						exception = true;
 					}
 
