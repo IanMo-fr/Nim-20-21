@@ -263,7 +263,7 @@ public Ihm() {
 	 * @param joueur	le pseudo du joueur a afficher dans le message
 	 */
 	public void score (Joueur joueur){
-	    System.out.print( joueur.getName()+" : " +joueur.getScore());
+	    System.out.print( joueur.getName()+" : " +joueur.getScore() + "\t");
 	}
 
 

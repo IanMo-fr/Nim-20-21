@@ -58,7 +58,7 @@ public Coup() {
  * 
  * @param tas	    L'objet system de jeu contenant les allumettes
  */
-	public void TakeMatches(Tas tas){
+	public void TakeMatches(Tas tas) throws Exception {
 	//retire les allumettes a une ligne
 	tas.retirer(this.lignes-1, this.nbAllumettes);
 

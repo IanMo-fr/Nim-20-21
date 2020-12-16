@@ -32,13 +32,15 @@ private static int contrainte;
      * @param ligne
      * @param allumettes
      */
-    public void retirer (int ligne, int allumettes) {
+    public void retirer (int ligne, int allumettes) throws Exception {
         if (allumettes >= 0 && contrainte == 0) {
             this.allumettes[ligne] = this.allumettes[ligne] - allumettes;
             return;
         }
         if (allumettes <= 0 || allumettes > contrainte) {
-            throw new InputMismatchException("Nombre négatif");
+            throw new InputMismatchException("Nombre négatif ou plus grand que la contrainte");}
+        if (this.allumettes[ligne]<= 0){
+            throw new Exception("La ligne est déjà vide");
         } else
             this.allumettes [ligne] = this.allumettes[ligne] - allumettes;
         }
@@ -51,7 +53,7 @@ private static int contrainte;
     public boolean isEmpty() {
         boolean res = true;
         for (int i=0; i < this.allumettes.length; i++ ) {
-            if (this.allumettes[i] <= 0)
+            if (this.allumettes[i] > 0 )
                 return false;
     }
         return res;

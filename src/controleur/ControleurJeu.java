@@ -67,7 +67,11 @@ public void commencerJeu () {
 						vue.getMove(joueur[tour].getName()).TakeMatches(this.lesTas);
 					}
 					catch(InputMismatchException e) {
-						System.out.println("mauvaise saisie");
+						System.out.println(e.getMessage());
+						exception = true;
+					}
+					catch(Exception e) {
+						System.out.println(e.getMessage());
 						exception = true;
 					}
 
