@@ -18,7 +18,7 @@ public class Joueur {
         Variables
 **************** */
     private String name;
-    int score;
+    private int score;
     
 
 
