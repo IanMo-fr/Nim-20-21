@@ -33,14 +33,14 @@ private static int contrainte;
      * @param allumettes
      */
     public void retirer (int ligne, int allumettes) throws Exception {
+        if (this.allumettes[ligne]<= 0)
+            throw new Exception("La ligne est déjà vide");
         if (allumettes >= 0 && contrainte == 0) {
             this.allumettes[ligne] = this.allumettes[ligne] - allumettes;
             return;
         }
         if (allumettes <= 0 || allumettes > contrainte) {
-            throw new InputMismatchException("Nombre négatif ou plus grand que la contrainte");}
-        if (this.allumettes[ligne]<= 0){
-            throw new Exception("La ligne est déjà vide");
+            throw new InputMismatchException("Nombre négatif ou plus grand que la contrainte");
         } else
             this.allumettes [ligne] = this.allumettes[ligne] - allumettes;
         }

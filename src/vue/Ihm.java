@@ -84,7 +84,8 @@ public Ihm() {
 	public Coup getMove(String name){
 		Coup saisi = new Coup();
 		boolean exception=false;
-		do{ System.out.print("\n"+name+" Saisissez votre ligne et le nombre d'allumettes a retirer : ");
+		do{ System.out.print("\n"+name+" Saisissez votre ligne et le nombre d'allumettes a retirer, sous la forme 'm n' " +
+				"où m est le tas choisi et n le nombre d'allumettes  : ");
 			
 		try {
 			// /!\ remplacer les variables par les méthodes d'accès
