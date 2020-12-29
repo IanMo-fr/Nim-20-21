@@ -60,6 +60,7 @@ private static int contrainte;
     }
 
     public static void setContrainte(int max) {
+        //condition a mettre en absolue ou lever d'exception
        contrainte = max;
     }
 
