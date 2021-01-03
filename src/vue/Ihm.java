@@ -274,12 +274,21 @@ public Ihm() {
 	 */
 	public int getContrainte() {
 		System.out.println("\nDonnez le nombre maximum d'allumettes pouvant etre retire en un tour pour votre partie");
-
-		return sc.nextInt();
+		boolean excpetion = false;
+		int saisi = 0;
+		do{
+		try {
+			excpetion=false;
+			saisi= sc.nextInt();
+		} catch (InputMismatchException e) {
+			System.out.println(e.getMessage());
+			excpetion=true;
+		} }while (excpetion);
+		return saisi;
 	}
 
 	public Coup IAturn (Coup coup){
-		System.out.println("IA joue: ligne:"+coup.getLignes()+"nombre:"+coup.getNbAllumettes());
+		System.out.println("IA joue: ligne:"+coup.getLignes()+" nombre d'allumettes"+coup.getNbAllumettes());
 		return coup;
 	}
 
