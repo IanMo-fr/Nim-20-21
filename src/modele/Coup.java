@@ -30,6 +30,10 @@ public Coup() {
 	this.nbAllumettes =0;
 }
 
+	public Coup(int lignes, int nbAllumettes) {
+		this.lignes = lignes;
+		this.nbAllumettes = nbAllumettes;
+	}
 
 /* ****************
         Methodes 

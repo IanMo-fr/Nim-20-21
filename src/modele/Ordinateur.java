@@ -1,9 +1,12 @@
 package modele;
 
+import java.util.Random;
+
 public class Ordinateur {
 /* ****************
         Variables
 **************** */
+    Random aleatoire;
 
 /* ********************
         Constructeurs
@@ -14,15 +17,26 @@ public class Ordinateur {
 **************** */
 
     public Coup sansContrainte (Tas jeu) {
-        //codage en binaire de chaque ligne du Tas
-        String binaire[]= new String[jeu.getAllumettes().length-1];
-        for (int l= 0; l < jeu.getAllumettes().length; l++) {
-            binaire[l]=Integer.toBinaryString(jeu.getAllumettes()[l]);
+        //resultat XoR
+        int binaire = 0;
+        for (int l= 0; l < jeu.getAllumettes().length-1; l++) {
+            binaire= binaire ^ jeu.getAllumettes()[l];
+        }
+        if (binaire == 0) {
+            int ligneAlea =aleatoire.nextInt(jeu.getAllumettes().length-2)+1;
+            int allumettesAlea = aleatoire.nextInt(jeu.getAllumettes()[ligneAlea]);
+            return new Coup(ligneAlea, allumettesAlea);
+        }
+        else {
+            for (int i = 0; i < jeu.getAllumettes().length-2; i++) {
+                int resultatBinaire = jeu.getAllumettes()[i] ^jeu.getAllumettes()[i+1];
+                if (resultatBinaire < jeu.getAllumettes()[i]) {
+                    return new Coup(i,resultatBinaire-jeu.getAllumettes()[i+1] );
+                }
+            }
+            return new Coup();
         }
     }
 
-    private int resultatXor (String binaire[]) {
-        byte byteBinaire [] = binaire[0].getBytes();
-        
-    }
+
 }
