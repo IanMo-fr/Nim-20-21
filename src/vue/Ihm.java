@@ -278,6 +278,19 @@ public Ihm() {
 		return sc.nextInt();
 	}
 
+	public boolean chooseIA () {
+		System.out.println("\nVoulez vous jouer contre l'IA?");
+		System.out.println("oui/non");
+		String choix = sc.nextLine();
+		while (choix.length() < 1) {// reutilisation de la soluce de assignName
+			choix = sc.nextLine();
+		}
+		if (choix.equals("oui")) {
+			return true;
+		}
+
+		return false;
+	}
 }
 
 
