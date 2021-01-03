@@ -278,6 +278,11 @@ public Ihm() {
 		return sc.nextInt();
 	}
 
+	public void IAturn (int ligne, int alumettes){
+		System.out.println("IA joue: ligne:"+ligne+"nombre:"+alumettes);
+
+	}
+
 	public boolean chooseIA () {
 		System.out.println("\nVoulez vous jouer contre l'IA?");
 		System.out.println("oui/non");

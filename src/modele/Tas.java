@@ -35,6 +35,8 @@ private static int contrainte;
     public void retirer (int ligne, int allumettes) throws Exception {
         if (this.allumettes[ligne]<= 0)
             throw new Exception("La ligne est déjà vide");
+        if (this.allumettes[ligne] < allumettes  )
+            throw new InputMismatchException("Vous ne pouver pas retirer plus d'allumettes que ce qu'il en reste");
         if (allumettes >= 0 && contrainte == 0) {
             this.allumettes[ligne] = this.allumettes[ligne] - allumettes;
             return;

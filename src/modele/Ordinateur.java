@@ -17,9 +17,10 @@ public class Ordinateur {
 **************** */
 
     public Coup sansContrainte (Tas jeu) {
-        //resultat XoR
+
         int binaire = 0;
         for (int l= 0; l < jeu.getAllumettes().length-1; l++) {
+            //resultat XoR
             binaire= binaire ^ jeu.getAllumettes()[l];
         }
         if (binaire == 0) {
@@ -36,6 +37,21 @@ public class Ordinateur {
             }
             return new Coup();
         }
+    }
+
+    public Coup avecContrainte (int contrainte, Tas jeu) {
+        int allumettesResultat =0;
+        for (int i= 0; i < jeu.getAllumettes().length-1; i++) {
+            if (jeu.getAllumettes()[i]> jeu.getAllumettes()[i]%contrainte+1) {
+                allumettesResultat =jeu.getAllumettes()[i]-jeu.getAllumettes()[i]%contrainte+1;
+                return new Coup(i, allumettesResultat);
+            } else {
+                int ligneAlea =aleatoire.nextInt(jeu.getAllumettes().length-2)+1;
+                int allumettesAlea = aleatoire.nextInt(jeu.getAllumettes()[ligneAlea]);
+                return new Coup(ligneAlea, allumettesAlea);
+            }
+        }
+        return new Coup ();
     }
 
 
