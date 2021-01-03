@@ -7,6 +7,7 @@ public class Ordinateur extends Joueur{
         Variables
 **************** */
     private Random aleatoire = new Random();
+
 /* ********************
         Constructeurs
 ******************** */
@@ -41,14 +42,18 @@ public class Ordinateur extends Joueur{
     }
 
     public Coup avecContrainte (int contrainte, Tas jeu) {
-        int allumettesResultat =0;
+        int allumettesResultat;
+        int ligneAlea;
         for (int i= 0; i < jeu.getAllumettes().length-1; i++) {
+
             if (jeu.getAllumettes()[i]> jeu.getAllumettes()[i]%contrainte+1) {
                 allumettesResultat =jeu.getAllumettes()[i]-jeu.getAllumettes()[i]%contrainte+1;
                 return new Coup(i+1, allumettesResultat);
             } else {
-                int ligneAlea =aleatoire.nextInt(jeu.getAllumettes().length-1)+1;
-                int allumettesAlea = aleatoire.nextInt(jeu.getAllumettes()[ligneAlea]);
+                do {
+                    ligneAlea = aleatoire.nextInt(jeu.getAllumettes().length - 1) + 1;
+                }while(jeu.getAllumettes()[ligneAlea]==0);
+                int allumettesAlea = aleatoire.nextInt(jeu.getAllumettes()[ligneAlea]+1);
                 return new Coup(ligneAlea+1, allumettesAlea+1);
             }
         }

@@ -288,7 +288,7 @@ public Ihm() {
 	}
 
 	public Coup IAturn (Coup coup){
-		System.out.println("IA joue: ligne:"+coup.getLignes()+" nombre d'allumettes"+coup.getNbAllumettes());
+		System.out.println("IA joue: ligne: "+coup.getLignes()+" nombre d'allumettes : "+coup.getNbAllumettes());
 		return coup;
 	}
 
