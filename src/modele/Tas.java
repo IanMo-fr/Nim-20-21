@@ -66,6 +66,10 @@ private static int contrainte;
        contrainte = max;
     }
 
+    public static int getContrainte() {
+        return contrainte;
+    }
+
     @Override
     public Object clone () {
         Tas copie= new Tas(this.allumettes.length);

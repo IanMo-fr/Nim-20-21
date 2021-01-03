@@ -68,6 +68,13 @@ public Coup() {
 
 }
 
+	public int getLignes() {
+		return lignes;
+	}
+
+	public int getNbAllumettes() {
+		return nbAllumettes;
+	}
 }
 
 

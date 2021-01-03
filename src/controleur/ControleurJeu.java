@@ -4,6 +4,7 @@ package controleur; /**
  */
 
 import modele.Joueur;
+import modele.Ordinateur;
 import modele.Tas;
 import vue.Ihm;
 
@@ -35,7 +36,10 @@ public ControleurJeu() {
 //constructeur avec vue.Ihm et modele.Tas
 public ControleurJeu(Ihm console, Tas lesTas){
 	joueur[0]= new Joueur(console.assignName(1));
-	joueur[1]= new Joueur(console.assignName(2));
+	if (!console.chooseIA())
+		joueur[1]= new Joueur(console.assignName(2));
+	else
+		joueur[1] = new Ordinateur();
 	this.lesTas = lesTas;
 	this.vue = console;
 }
@@ -64,7 +68,12 @@ public void commencerJeu () {
 				do {
 					exception = false;
 					try {
-						vue.getMove(joueur[tour].getName()).TakeMatches(this.lesTas);
+						if (joueur[tour] instanceof Ordinateur && lesTas.getContrainte()==0)
+							vue.IAturn( ((Ordinateur) joueur[tour]).sansContrainte(this.lesTas)).TakeMatches(this.lesTas);
+						else if (joueur[tour] instanceof Ordinateur)
+							vue.IAturn(((Ordinateur) joueur[tour]).avecContrainte(this.lesTas.getContrainte(),this.lesTas)).TakeMatches(this.lesTas);
+						else
+							vue.getMove(joueur[tour].getName()).TakeMatches(this.lesTas);
 					}
 					catch(InputMismatchException e) {
 						System.out.println(e.getMessage());

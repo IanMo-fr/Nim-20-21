@@ -278,9 +278,9 @@ public Ihm() {
 		return sc.nextInt();
 	}
 
-	public void IAturn (int ligne, int alumettes){
-		System.out.println("IA joue: ligne:"+ligne+"nombre:"+alumettes);
-
+	public Coup IAturn (Coup coup){
+		System.out.println("IA joue: ligne:"+coup.getLignes()+"nombre:"+coup.getNbAllumettes());
+		return coup;
 	}
 
 	public boolean chooseIA () {

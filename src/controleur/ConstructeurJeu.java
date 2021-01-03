@@ -70,5 +70,6 @@ public ConstructeurJeu(Ihm console) {
 
        Tas.setContrainte(console.getContrainte());
 
+
     }
 }

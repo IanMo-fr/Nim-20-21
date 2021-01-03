@@ -2,16 +2,17 @@ package modele;
 
 import java.util.Random;
 
-public class Ordinateur {
+public class Ordinateur extends Joueur{
 /* ****************
         Variables
 **************** */
-    Random aleatoire;
-
+    private Random aleatoire;
 /* ********************
         Constructeurs
 ******************** */
-
+    public Ordinateur(){
+        this.name ="IA";
+    }
 /* ****************
         Methodes
 **************** */
@@ -32,7 +33,7 @@ public class Ordinateur {
             for (int i = 0; i < jeu.getAllumettes().length-2; i++) {
                 int resultatBinaire = jeu.getAllumettes()[i] ^jeu.getAllumettes()[i+1];
                 if (resultatBinaire < jeu.getAllumettes()[i]) {
-                    return new Coup(i,resultatBinaire-jeu.getAllumettes()[i+1] );
+                    return new Coup(i,jeu.getAllumettes()[i+1]-resultatBinaire );
                 }
             }
             return new Coup();
