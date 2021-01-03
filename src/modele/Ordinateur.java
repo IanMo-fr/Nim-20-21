@@ -31,9 +31,9 @@ public class Ordinateur extends Joueur{
         }
         else {
             for (int i = 0; i < jeu.getAllumettes().length-2; i++) {
-                int resultatBinaire = jeu.getAllumettes()[i] ^jeu.getAllumettes()[i+1];
+                int resultatBinaire = jeu.getAllumettes()[i] ^binaire;
                 if (resultatBinaire < jeu.getAllumettes()[i]) {
-                    return new Coup(i,jeu.getAllumettes()[i+1]-resultatBinaire );
+                    return new Coup(i,jeu.getAllumettes()[i]-resultatBinaire );
                 }
             }
             return new Coup();
